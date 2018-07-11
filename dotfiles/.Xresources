@@ -1,0 +1,32 @@
+!                       .     .                       ..       
+!             %     .d88"    @88>               < .z@8"`       
+!         .   <k   5888R     %8P                 !@88E         
+!       .@8Ned8"   '888R      .           .      '888E   u     
+!     .@^%8888"     888R    .@88u    .udR88N      888E u@8NL ,  
+!    x88:  `)8b.    888R    '888E`   <888'888k    888E`"88*"  
+!    8888N=*8888    888R     888E    9888 'Y"     888E .dN.   
+!     %8"    R88    888R     888E    9888         888E~8888   
+!            R88    888R     888E    9888         888E '888&  
+!      @8W  o9%    .888B .   888&    ?8888u../    888E  9888. 
+!    .888888P`     ^*888%    888&    "8888P'    '"888*" 4888" 
+!    `   ^"F         "%       "%       "P'         "%    "%   
+
+!                slick's x220 xresources config
+
+#include ".colors/orange2"
+
+*font:        xft:kakwafont:size=8
+*boldFont:    xft:kakwafont:size=8
+*letterSpace: 0
+
+*scrollBar:       false
+*cursorBlink:     false
+*cursorUnderline: false
+
+*internalBorder: 8
+*geometry:       67x21
+
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher:    /usr/bin/xdg-open
+URxvt.matcher.button:  1
+
