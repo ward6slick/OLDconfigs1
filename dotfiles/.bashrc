@@ -1,13 +1,15 @@
 # Prompt
-PS1=$'\e[1;33m ~ \e[0m'
+PS1='~ '
 
 # Envars
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoredups:erasedups
 HISTSIZE=1000
 HISTFILESIZE=2000
 shopt -s histappend
 shopt -s checkwinsize
 export EDITOR="vim"
+export IRC_CLIENT='irssi'
+PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 
 # Aliases
 alias ls='ls --color=auto'
@@ -34,5 +36,3 @@ man() {
                 LESS_TERMCAP_us=$(printf "\e[1;32m") \
                         man "$@"
 }
-
-neofetch
