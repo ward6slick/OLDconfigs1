@@ -1,10 +1,13 @@
 # Prompt
-PS1='~ '
+export BASH_IT="/home/slick/.bash_it"
+export BASH_IT_THEME='simple'
+export SCM_CHECK=true
+source "$BASH_IT"/bash_it.sh
 
 # Envars
 HISTCONTROL=ignoredups:erasedups
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=10000
 shopt -s histappend
 shopt -s checkwinsize
 export EDITOR="vim"
