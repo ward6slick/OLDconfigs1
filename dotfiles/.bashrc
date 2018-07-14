@@ -31,6 +31,7 @@ PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 alias ls='ls --color=auto'
 alias c='clear'
 alias apt='sudo apt-get'
+alias elevate='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade'
 alias shutdown='sudo shutdown -P now'
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
