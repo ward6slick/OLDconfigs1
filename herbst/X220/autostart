@@ -24,14 +24,13 @@ hc keyunbind --all
 pkill tint2
 pkill xbindkeys
 pkill compton
-tint2 -c ~/.config/tint2/X220/orange2/tint2rc-border &
-tint2 -c ~/.config/tint2/X220/orange2/tint2rc-ws &
-tint2 -c ~/.config/tint2/X220/orange2/tint2rc-task &
-tint2 -c ~/.config/tint2/X220/orange2/tint2rc-clockbatt &
+tint2 -c ~/.config/tint2/X220/purple1/tint2rc-ws &
+tint2 -c ~/.config/tint2/X220/purple1/tint2rc-info &
+tint2 -c ~/.config/tint2/X220/purple1/tint2rc-border &
 compton &
 xrdb ~/.Xresources &
 xbindkeys &
-pactl set-sink-volume 0 100% &
+#pactl set-sink-volume 0 100% &
 feh --bg-fill ~/.wallpaper.png --no-fehbg &
 xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
 
@@ -44,7 +43,7 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-q close_or_remove
 hc keybind $Mod-Shift-q close_and_remove
 hc keybind $Mod-Return spawn urxvt -name 'slick@x220: ~'
-hc keybind $Mod-d spawn dmenu_run -fn kakwafont -p $ -nb '#0f0f0f' -sb '#4a4a4a'
+hc keybind $Mod-d spawn dmenu_run -b -fn kakwafont -p $ -nb '#0f0f0f' -sb '#4a4a4a'
 hc keybind $Mod-w spawn firefox-esr
 hc keybind $Mod-Shift-w spawn google-chrome-stable
 hc keybind $Mod-t spawn urxvt -e htop
@@ -170,8 +169,8 @@ hc set frame_bg_transparent 1
 hc set frame_transparent_width 0
 hc set frame_gap 0
 
-hc attr theme.active.color '#8C3B26'
-hc attr theme.normal.color '#2d2c23'
+hc attr theme.active.color '#9E8978'
+hc attr theme.normal.color '#565873'
 hc attr theme.urgent.color orange
 hc attr theme.inner_width 0
 hc attr theme.inner_color gray
