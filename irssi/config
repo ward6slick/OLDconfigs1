@@ -1,0 +1,125 @@
+utf8 = "on";
+
+servers = (
+  {
+    address = "irc.freenode.net";
+    chatnet = "freenode";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "no";
+  },
+  {
+    address = "irc.nixers.net";
+    chatnet = "nixers";
+    port = "6697";
+    use_ssl = "yes";
+    autoconnect = "no";
+  },
+  {
+    address = "irc.rizon.net";
+    chatnet = "rizon";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "yes";
+    tls_capath = "/etc/ssl/certs";
+  },
+  {
+    address = "irc.lainchan.org";
+    chatnet = "lainchan";
+    port = "6697";
+    use_tls = "no";
+    tls_verify = "no";
+  }
+);
+
+chatnets = {
+  freenode = { type = "IRC"; };
+  rizon = {
+    type = "IRC";
+    sasl_mechanism = "plain";
+    sasl_username = "s6xslick";
+    sasl_password = "";
+  };
+  nixers = { type = "IRC"; };
+  lainchan = { type = "IRC"; };
+};
+
+settings = {
+  core = {
+    real_name = "ward6 slick";
+    user_name = "s6xslick";
+    nick = "s6xslick";
+  };
+  "fe-text" = {
+    actlist_sort = "refnum";
+    indent = "14";
+    indent_always = "yes";
+  };
+  "fe-common/core" = {
+    theme = "c";
+    timestamps = "no";
+    show_nickmode_empty = "yes";
+    autolog = "yes";
+    show_names_on_join = "no";
+  };
+  type = "IRC";
+  "perl/core/scripts" = {
+    tmux_away_message = "afk";
+    tmux_away_window = "0";
+    nickcolor_enable_prefix = "yes";
+    nickcolor_enable_truncate = "yes";
+    nickcolor_prefix_text = "             ";
+    nickcolor_truncate_value = "-8";
+    nickcolor_colors = "2 3 4 5 6 7 8 9 10 11 12 13 14";
+  };
+};
+
+statusbar = {
+  default = {
+    topic = { disabled = "yes"; };
+    window = {
+      items = {
+        barstart = { alignment = "right"; priority = "100"; };
+        window = { };
+        window_empty = { };
+        lag = { priority = "-1"; alignment = "right"; position = "0"; };
+        act = { priority = "10"; alignment = "right"; position = "0"; };
+        more = { priority = "10"; alignment = "right"; position = "0"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+      position = "0";
+      placement = "top";
+      visible = "active";
+    };
+    prompt = { position = "0"; };
+    window_inact = { disabled = "yes"; };
+  };
+};
+
+
+ignores = ( { level = "MODES JOINS PARTS QUITS"; } );
+
+aliases = {
+  leave = "part";
+  close = "window close";
+  swe = "statusbar window enable";
+  swd = "statusbar window disable";
+  afk = "away afk";
+  ns = "msg nickserv";
+  nsi = "msg nickserv identify";
+  con = "connect";
+  dcon = "disconnect";
+  r = "reload";
+  c = "clear";
+  j = "join";
+};
+
+logs = { };
+
+keyboard = (
+  { key = "^O"; id = "command"; data = "statusbar window enable "; },
+  { key = "^P"; id = "command"; data = "statusbar window disable "; },
+  { key = "meta-[M"; id = "command"; data = "mouse_xterm "; }
+);
+
