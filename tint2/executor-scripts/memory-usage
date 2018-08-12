@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mem=$(free | grep Mem | awk '{printf ("%.f%",$3/$2*100.0)}')
+
+printf "‮‬‭ ""$mem""%"
