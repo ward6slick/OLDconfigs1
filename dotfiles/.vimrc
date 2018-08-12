@@ -1,11 +1,11 @@
 
-" 8b       d8  88  88,dPYba,,adPYba,     8b,dPPYba,   ,adPPYba, 
-" `8b     d8'  88  88P'   '88"    '8a    88P'   'Y8  a8"     '" 
-"  `8b   d8'   88  88      88      88    88          8b         
-"   `8b,d8'    88  88      88      88    88          "8a,   ,aa 
-"     '8"      88  88      88      88    88           `"Ybbd8"' 
+"  8b       d8  88  88,dPYba,,adPYba,     8b,dPPYba,   ,adPPYba, 
+"  `8b     d8'  88  88P'   '88"    '8a    88P'   'Y8  a8"     '" 
+"   `8b   d8'   88  88      88      88    88          8b         
+"    `8b,d8'    88  88      88      88    88          "8a,   ,aa 
+"      '8"      88  88      88      88    88           `"Ybbd8"' 
 
-"                       slick's x220 vimrc
+"                        slick's x220 vimrc
 
 set t_Co=8
 set clipboard+=unnamed
@@ -48,5 +48,10 @@ set breakindent
 
 " ui
 set noruler
-set nonumber
+set number
+set relativenumber
 set background=dark
+
+" keybinds
+map <C-P> :set nonumber norelativenumber<CR>
+map <C-O> :set number relativenumber<CR>
