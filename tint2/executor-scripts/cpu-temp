@@ -1,0 +1,5 @@
+#!/bin/bash
+
+temp=$(printf '%d°\n' $(sensors | grep 'id 0:' | awk '{ print $4 }') 2>/dev/null)
+
+printf "‮‬‭ ""$temp""C"
