@@ -1,0 +1,39 @@
+#!/bin/bash
+
+batt=$(upower -i $(upower -e | grep '/battery') | grep --color=never -E percentage|xargs|cut -d' ' -f2|sed s/%%//)
+
+#printf "‮‬‭ ""$batt""%"
+
+state=$(acpi | cut -d' ' -f 4 | awk -F, '{print $1}' | awk -F% '{print $1}')
+
+if test $state -ge 100
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 50
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 49
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 40
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 30
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 20
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 16
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 15
+then
+    icon=$(echo -e '‮‬‭ ')
+else
+    icon=$(echo -e '‮‬‭ ')
+fi
+
+echo "$icon""$batt"
+
+exit 0

@@ -1,0 +1,39 @@
+#!/bin/bash
+
+vol=$(amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }')
+
+#printf "‮‬‭ ""$vol""%"
+
+state=$(amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | awk -F, '{print $1}' | awk -F% '{print $1}')
+
+if test $state -ge 100
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 50
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 40
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 38
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 20
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 10
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 2
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 0
+then
+    icon=$(echo -e '‮‬‭ ')
+else
+    icon=$(echo -e '‮‬‭ ')
+fi
+
+echo "$icon""$vol"
+
+exit 0
