@@ -2,11 +2,14 @@
 
 vol=$(amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }')
 
-#printf "‮‬‭ ""$vol""%"
+mute=$(amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $4 }' | awk -F, '{print $1}' | awk -F% '{print $1}')
 
 state=$(amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | awk -F, '{print $1}' | awk -F% '{print $1}')
 
-if test $state -ge 100
+if [[ "$mute" == "off" ]]
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 100
 then
     icon=$(echo -e '‮‬‭ ')
 elif test $state -ge 50
@@ -29,7 +32,7 @@ then
     icon=$(echo -e '‮‬‭ ')
 elif test $state -ge 0
 then
-    icon=$(echo -e '‮‬‭ ')
+    icon=$(echo -e 's‮‬‭ ')
 else
     icon=$(echo -e '‮‬‭ ')
 fi
