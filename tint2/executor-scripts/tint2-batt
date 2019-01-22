@@ -2,11 +2,14 @@
 
 batt=$(upower -i $(upower -e | grep '/battery') | grep --color=never -E percentage|xargs|cut -d' ' -f2|sed s/%%//)
 
-#printf "‮‬‭ ""$batt""%"
+charge=$(acpi | cut -d' ' -f 3 | awk -F, '{print $1}')
 
 state=$(acpi | cut -d' ' -f 4 | awk -F, '{print $1}' | awk -F% '{print $1}')
 
-if test $state -ge 100
+if [[ "$charge" == "Charging" ]]
+then
+    icon=$(echo -e '‮‬‭ ')
+elif test $state -ge 100
 then
     icon=$(echo -e '‮‬‭ ')
 elif test $state -ge 50
