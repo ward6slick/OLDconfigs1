@@ -32,7 +32,7 @@ then
     icon=$(echo -e '‮‬‭ ')
 elif test $state -ge 0
 then
-    icon=$(echo -e 's‮‬‭ ')
+    icon=$(echo -e '‮‬‭ ')
 else
     icon=$(echo -e '‮‬‭ ')
 fi
