@@ -211,4 +211,3 @@ tooltip_hide_timeout = 0.1
 tooltip_padding = 2 2
 tooltip_background_id = 5
 tooltip_font_color = #222222 100
-
