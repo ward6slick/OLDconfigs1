@@ -122,4 +122,3 @@ keyboard = (
   { key = "^P"; id = "command"; data = "statusbar window disable "; },
   { key = "meta-[M"; id = "command"; data = "mouse_xterm "; }
 );
-
