@@ -13,7 +13,7 @@
 
 !                slick's x220 xresources config
 
-#include ".colors/brown6"
+#include ".colors/green4"
 
 *font:        xft:kakwafont:size=8
 *boldFont:    xft:kakwafont:size=8
@@ -29,3 +29,14 @@
 URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher:    /usr/bin/xdg-open
 URxvt.matcher.button:  1
+
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+(cat ~/.cache/wal/sequences &)
+
+# Alternative (blocks terminal for 0-3ms)
+cat ~/.cache/wal/sequences
+
+# To add support for TTYs this line can be optionally added.
+source ~/.cache/wal/colors-tty.sh
