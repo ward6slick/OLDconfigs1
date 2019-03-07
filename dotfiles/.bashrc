@@ -35,6 +35,7 @@ alias elevate='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-
 alias shutdown='sudo shutdown -P now'
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
+alias cursor-off='setterm -cursor off'
 alias hc='herbstclient'
 alias yt="youtube-dl"
 alias yta="youtube-dl --extract-audio --audio-format mp3 --audio-quality 0"
