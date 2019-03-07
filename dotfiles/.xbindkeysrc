@@ -1,12 +1,11 @@
 # Increase volume
-sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +2%"
+sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +1%"
    XF86AudioRaiseVolume
 
 # Decrease volume
-sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -2%"
+sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -1%"
    XF86AudioLowerVolume
 
 # Toggle mute
 "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     XF86AudioMute
-
