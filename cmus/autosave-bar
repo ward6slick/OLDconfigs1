@@ -58,7 +58,7 @@ set format_current= %= %{?volume>=0?vol: %{?lvolume!=rvolume?%{lvolume},%{rvolum
 set format_playlist= %-30%a  %t%= %d 
 set format_playlist_va= %-30%a  %t%= %d 
 set format_statusline= %{status} %a - %t%= %1{follow} %1{repeat} %1{shuffle} %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }}
-set format_title=%a - %t
+set format_title=%a - %l - %t (%y)
 set format_trackwin=%3n. %t%= %d 
 set format_trackwin_album=%l 
 set format_trackwin_va=%3n. %t%= %d 
@@ -90,13 +90,13 @@ set show_all_tracks=true
 set show_current_bitrate=false
 set show_hidden=false
 set show_playback_position=true
-set show_remaining_time=true
+set show_remaining_time=false
 set shuffle=false
 set skip_track_info=false
 set smart_artist_sort=true
 set softvol=false
 set softvol_state=0 0
-set status_display_program=cmus-feh1
+set status_display_program=
 set wrap_search=true
 bind browser u win-update
 bind common + vol +10%
@@ -113,14 +113,11 @@ bind common 7 view settings
 bind common ; win-toggle
 bind common = vol +5%
 bind common G win-bottom
-bind common N search-prev
-bind common P win-mv-before
 bind common R refresh
 bind common U win-update-cache
 bind common a win-add-l
 bind common delete win-remove
 bind common down win-down
-bind common e win-add-q
 bind common enter win-activate
 bind common f toggle follow
 bind common g win-top
@@ -130,8 +127,6 @@ bind common k win-up
 bind common l player-next
 bind common left seek -5
 bind common mlb_click_selected win-activate
-bind common n search-next
-bind common p win-mv-after
 bind common q quit -i
 bind common r toggle repeat
 bind common right seek +5
