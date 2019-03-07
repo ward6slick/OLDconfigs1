@@ -1,0 +1,241 @@
+;                     d8b            d8b                         
+;                     d88            d88                         
+;                     d88            88b                        
+;   ?88,cd88b, d8888b 888  ?88  c8P  d88888b   c888b8b  88bd88b
+;   `?88'  ?88d8P' ?88?88  d88   88  88P `?8b d8P' ?88  88P'  `
+;     88b  d8P88b  d88 88b ?8(  d88 d88,  d8888b  ,88b d88     
+;     888888P'`?8888P'  88b`?88P'?8bd888?888P `?88P'`88bd88'     
+;     88P'                       )88                             
+;    d88                        ,d8P                             
+;    c8P                     ?888P'                             
+
+
+[colors]
+background = ${xrdb:color0}
+;background = #222
+background-alt = ${xrdb:color8}
+foreground = ${xrdb:color7}
+;foreground = #dfdfdf
+foreground-alt = #555
+icon = ${xrdb:color4}
+underline = ${xrdb:color4}
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/float]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 1346
+height = 22
+offset-x = 10
+offset-y = 10
+radius = 0.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+border-size = 2
+border-color = ${colors.background-alt}
+
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 0
+
+font-0 = kakwafont:pixelsize=10;1
+font-1 = Zpix:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+
+modules-left = ewmh xwindow
+modules-right = alsa temperature battery date
+
+tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+
+[module/ewmh]
+type = internal/xworkspaces
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+:pin-workspaces = true
+
+; Create click handler used to focus desktop
+; Default: true
+enable-click =true 
+
+; Create scroll handlers used to cycle desktops
+; Default: true
+enable-scroll = true 
+
+icon-0 =
+icon-1 =
+icon-2 =
+icon-3 =
+icon-4 =
+; Available tags:
+;   <label-monitor>
+;   <label-state> - gets replaced with <label-(active|urgent|occupied|empty)>
+; Default: <label-state>
+format = <label-state>
+; Available tokens:
+;   %name%
+; Default: %name%
+label-monitor = %name%
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+label-active =  %name%
+label-active-foreground = ${colors.foreground}
+label-active-background = ${colors.background-alt}
+label-active-padding = 1
+label-occupied-padding-right = 1
+label-urgent-padding-right = 1
+label-empty-padding-right = 1
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen=36
+label-padding =1
+format-underline = ${colors.underline}
+
+
+[module/date]
+type = internal/date
+interval = 5
+
+time = %a %m/%d/%y - %I:%M %p
+
+format-prefix = ‮ ‬
+format-prefix-foreground = ${colors.icon}
+format-underline = ${colors.underline}
+
+label = %time%
+
+
+[module/alsa]
+type = internal/alsa
+
+format-volume = <label-volume>
+format-volume-underline = ${colors.underline}
+format-volume-prefix = "‮‬‭ "
+format-volume-prefix-foreground = ${colors.icon}
+label-volume = %percentage%%
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = "‮‬‭ "
+format-muted-foreground = ${colors.background-alt}
+format-muted-underline = ${colors.underline}
+label-muted = %percentage%%
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 100
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.underline}
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.icon}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-foreground = ${colors.icon}
+
+animation-charging-0 = 
+animation-charging-foreground = ${colors.icon}
+animation-charging-framerate = 1
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.icon}
+animation-discharging-framerate = 750
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = ${colors.underline}
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${colors.underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-foreground = ${colors.icon}
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
