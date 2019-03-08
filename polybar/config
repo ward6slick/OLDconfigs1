@@ -12,15 +12,10 @@
 
 [colors]
 background = ${xrdb:color0}
-;background = #222
 background-alt = ${xrdb:color8}
 foreground = ${xrdb:color7}
-;foreground = #dfdfdf
-foreground-alt = #555
 icon = ${xrdb:color4}
 underline = ${xrdb:color4}
-primary = #ffb52a
-secondary = #e60053
 alert = #bd2c40
 
 [bar/float]
@@ -48,30 +43,14 @@ module-margin-left = 1
 module-margin-right = 0
 
 font-0 = kakwafont:pixelsize=10;1
-font-1 = Zpix:fontformat=truetype:size=8:antialias=false;0
+font-1 = Zpix:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = ewmh xwindow
 modules-right = alsa temperature battery date
 
-tray-position = right
-tray-padding = 2
-;tray-background = #0063ff
-
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
 cursor-click = pointer
 cursor-scroll = ns-resize
-
 
 
 [module/ewmh]
@@ -156,23 +135,6 @@ format-muted-foreground = ${colors.background-alt}
 format-muted-underline = ${colors.underline}
 label-muted = %percentage%%
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
 
 [module/battery]
 type = internal/battery
@@ -192,25 +154,24 @@ format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
 ramp-capacity-foreground = ${colors.icon}
 
 animation-charging-0 = 
 animation-charging-foreground = ${colors.icon}
-animation-charging-framerate = 1
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.icon}
-animation-discharging-framerate = 750
 
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
+warn-temperature = 65
 
 format = <ramp> <label>
 format-underline = ${colors.underline}
@@ -219,7 +180,7 @@ format-warn-underline = ${colors.underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = ${colors.alert}
 
 ramp-0 = 
 ramp-foreground = ${colors.icon}
