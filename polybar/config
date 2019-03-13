@@ -18,6 +18,25 @@ icon = ${xrdb:color4}
 underline = ${xrdb:color4}
 alert = #bd2c40
 
+[bar/attached]
+inherit = bar/float
+width = 100%
+height = 22
+offset-x = 0
+offset-y = 0
+radius = 0.0
+fixed-center = false
+border-size = 0
+
+[bar/top]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 1346
+height = 22
+offset-x = 10
+offset-y = 10
+radius = 0.0
+fixed-center = false
+
 [bar/float]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 1346
@@ -47,6 +66,7 @@ font-1 = Zpix:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = ewmh xwindow
+;modules-center = music
 modules-right = alsa temperature battery date
 
 cursor-click = pointer
@@ -101,11 +121,22 @@ label-empty-padding-right = 1
 
 [module/xwindow]
 type = internal/xwindow
+interval = 1
 label = %title%
 label-maxlen=36
 label-padding =1
 format-underline = ${colors.underline}
 
+
+[module/music]
+type = custom/script
+interval = 1
+
+exec = music
+
+format-padding = 1
+format-suffix = ‮ ‬
+format-suffix-foreground = ${colors.icon}
 
 [module/date]
 type = internal/date
