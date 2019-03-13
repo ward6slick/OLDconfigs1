@@ -21,7 +21,7 @@ xsetroot -solid '#979797'
 hc keyunbind --all
 
 # colors
-. "/home/slick/.colors/green4"
+. "/home/slick/.colors/purple3"
 
 # bar
  find the panel
@@ -73,6 +73,7 @@ hc keybind Control-Alt-l spawn i3lock-fancy -t LOCKED -f AventGarde-Book
 hc keybind Print spawn scrot 'scrot_%Y-%m-%d-%S_$wx$h.png'
 
 # padding
+#hc pad 0 26 4 4 4
 hc pad 0 41 4 4 4
 hc set snap_gap 6
 hc set window_gap 6
@@ -128,7 +129,7 @@ hc keybind $Mod-Shift-g cycle_value window_gap 6 0
 
 # layouting
 hc keybind $Mod-s floating toggle
-hc keybind $Mod-Shift-s spawn ~/.config/herbstluftwm/toggle_single_float.sh
+hc keybind $Mod-Shift-s spawn ~/.config/herbstluftwm/toggle-single-float.sh
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
 hc keybind $Mod-b load '(split horizontal:0.680000:1 (clients max:0) (split vertical:0.600000:0 (clients vertical:0 0x1400009) (clients vertical:0)))'
