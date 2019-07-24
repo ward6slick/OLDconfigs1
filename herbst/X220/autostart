@@ -74,7 +74,7 @@ hc keybind $Mod-e spawn mgba-qt
 hc keybind $Mod-Shift-m spawn /home/slick/Scripts/popup/cover-random.sh
 hc keybind $Mod-c spawn urxvt -e calcurse
 hc keybind $Mod-Shift-c spawn /home/slick/Scripts/popup/calender.sh
-#hc keybind $Mod-Shift-Return spawn urxvt -e irssi
+hc keybind $Mod-Shift-t spawn urxvt -e irssi
 
 # lockscreen
 hc keybind Control-Alt-l spawn i3lock -f -i ~/Pictures/hlwm/i3lockX200.png
