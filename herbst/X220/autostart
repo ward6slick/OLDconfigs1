@@ -7,7 +7,7 @@
 #         888  888 Y888    , 888    888  888P   888D  888   
 #         888  888  "88___/  888    888-_88"  \_88P   "88_/ 
                                                   
-#                slick's x220 herbstluftwm config
+#                slick's x200 herbstluftwm config
 
 hc() {
     herbstclient "$@"
@@ -21,7 +21,7 @@ xsetroot -solid '#979797'
 hc keyunbind --all
 
 # colors
-. "/home/slick/.colors/blue1"
+. "/home/slick/.colors/black3"
 
 # bar
  find the panel
@@ -56,7 +56,7 @@ hc keybind $Mod-BackSpace remove
 
 # cli
 hc keybind $Mod-Return spawn urxvt -name 'slick@x200: ~'
-hc keybind $Mod-Shift-Return spawn urxvt -e tmux
+hc keybind $Mod-Shift-Return spawn urxvt -e tmux new-session -s urxvt
 hc keybind $Mod-v spawn drawterm
 hc keybind $Mod-d spawn dmenu_run -fn kakwafont -p $ -nb '#0f0f0f' -sb '#4a4a4a'
 hc keybind $Mod-Shift-d spawn dmenuunicode
@@ -66,15 +66,15 @@ hc keybind $Mod-w spawn waterfox
 hc keybind $Mod-Shift-w spawn google-chrome-stable
 hc keybind $Mod-t spawn urxvt -e htop
 hc keybind $Mod-r spawn urxvt -e ranger
+hc keybind $Mod-c spawn urxvt -e calcurse
 #hc keybind $Mod-m spawn urxvt -e cmus
-hc keybind $Mod-m spawn urxvt -e tmux new-session cmus
+hc keybind $Mod-m spawn urxvt -e tmux new-session -s music cmus
+hc keybind $Mod-Shift-t spawn urxvt -e irssi
 hc keybind $Mod-e spawn mgba-qt
 
 # scripts
 hc keybind $Mod-Shift-m spawn /home/slick/Scripts/popup/cover-random.sh
-hc keybind $Mod-c spawn urxvt -e calcurse
 hc keybind $Mod-Shift-c spawn /home/slick/Scripts/popup/calender.sh
-hc keybind $Mod-Shift-t spawn urxvt -e irssi
 
 # lockscreen
 hc keybind Control-Alt-l spawn i3lock -f -i ~/Pictures/hlwm/i3lockX200.png
@@ -146,9 +146,7 @@ hc keybind $Mod-p pseudotile toggle
 hc keybind $Mod-b load '(split horizontal:0.670000:1 (clients max:0 0xa00010) (split vertical:0.620000:0 (clients vertical:0 0x1200009) (clients vertical:0 0x800009)))'
 #hc keybind $Mod-b load '(split horizontal:0.680000:1 (clients max:0) (split vertical:0.600000:0 (clients vertical:0 0x1400009) (clients vertical:0)))'
 
-# The following cycles through the available layouts within a frame, but skips
-# layouts, if the layout change wouldn't affect the actual window positions.
-# I.e. if there are two windows within a frame, the grid layout is skipped.
+# cycle available layouts
 hc keybind $Mod-space                                                           \
             or , and . compare tags.focus.curframe_wcount = 2                   \
                      . cycle_layout +1 vertical horizontal max vertical grid    \
