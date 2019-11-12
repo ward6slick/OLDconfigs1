@@ -1,17 +1,5 @@
 #!/bin/bash
 
-# a q3-like (or yakuake-like) terminal for arbitrary applications.
-#
-# this lets a new monitor called "q3terminal" scroll in from the top into the
-# current monitor. There the "scratchpad" will be shown (it will be created if
-# it doesn't exist yet). If the monitor already exists2 it is scrolled out of
-# the screen and removed again.
-#
-# Warning: this uses much resources because herbstclient is forked for each
-# animation step.
-#
-# If a tag name is supplied, this is used instead of the scratchpad
-
 tag="${1:-}"
 
 hc() {
@@ -20,13 +8,13 @@ hc() {
 }
 
 mrect=( $(hc monitor_rect -p "" ) )
-termwidth=$(((${mrect[2]}*33)/100))
-termheight=${mrect[3]}
+termwidth=$(((${mrect[2]}*45)/100))
+termheight=755
 
 rect=(
     $termwidth
     $termheight
-    $(((${mrect[2]}-2*termwidth)))
+    $((${mrect[0]}+(${mrect[2]}-termwidth)/2))
     $((${mrect[1]}-termheight))
 )
 
@@ -90,8 +78,6 @@ hide() {
     y_line=${rect[3]} # height of the upper screen border
 
     animate $(seq 0 +1 $steps)
-    # if q3terminal still is focused, then focus the previously focused monitor
-    # (that mon which was focused when starting q3terminal)
     hc substitute M monitors.by-name.$monitor.my_prev_focus \
         and + compare monitors.focus.name = $monitor \
             + focus_monitor M
@@ -100,4 +86,3 @@ hide() {
 }
 
 [ $exists2 = true ] && hide || show
-
