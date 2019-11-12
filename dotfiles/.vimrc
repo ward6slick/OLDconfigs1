@@ -64,7 +64,7 @@ function! StatuslineToggle()
         set laststatus=0
     endif
 endfunction
-map <C-S> :call StatuslineToggle()<CR>
+map <C-B> :call StatuslineToggle()<CR>
 
 " statusline
 function! ActiveStatus()
